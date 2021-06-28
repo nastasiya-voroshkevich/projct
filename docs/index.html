@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Математика. Тестовый тренажер</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <nav>
+          <ul >
+            <button class="nav-link " id="logout">Выход</button>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="section-login">
+        <div class="container">
+          <div class="wrapper" id="login">
+            <h2 class="section-login__title">
+              Для входа введите Фамилию <br />Имя<br /> Отчество <br />(для ученика)
+            </h2>
+            <form class="form-login">
+             
+              <input
+                id="inputEmail"
+                class="form-login__input"
+                placeholder=""
+                required=""
+              />
+              <div class="form-login__wrapp"> 
+                <select class="login-select" id="person">
+                  <option class="login-select__option" value="8">
+                    ученик 8 класса
+                  </option>
+                  <option class="login-select__option" value="9">
+                    ученик 9 класса
+                  </option>
+                  <option class="login-select__option" value="11">
+                    ученик 11 класса
+                  </option>
+                  <option class="login-select__option" value="учитель">
+                    учитель
+                  </option>
+                </select>
+                
+                <button class="btn" id="login-button" type="submit">
+                  Войти
+                </button>
+              </div>
+            
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="section-recording">
+        <div id="recording" class="container">
+          <div class="recording-wrapp">
+           <ul>
+            <li  >
+              <button id="test-eleventh__class">
+                Централизованное тестирование для 11 классов
+              </button>
+            </li>
+            <li  >
+              <button id="test-ninth__class"  >Тест для 9 классов</button>
+            </li>
+            <li >
+            <button  id="test-eighth__class" >Тест для 8 классов </button>
+          </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </form>
+      </section>
+      <section class="section-quiz">
+       <div class="container">
+      <div id="tasks-eleventh__class">
+        <div class="quiz" id="quiz">
+          <div class="quiz-queations" id="questions"></div>
+          <div class="quiz-indicator" id="indicator">1/10</div>
+          <div class="quiz-results" hidden id="results">
+            <div class="quiz-results-item"></div>
+          </div>
+
+          <div class="quiz-controls">
+            <div id="correctAnswer" class="quiz-results-item__answer"></div>
+            <button class="btn-next" id="next" disabled>Далее</button>
+            <button class="btn-restart" id="restart" disabled>Назад</button>
+          </div>
+        </div>
+        <div class="quiz-btn__wrapper">
+          <div class="btn-exit__wrapp">
+        <button type="button" class="btn-exit__modal">Выйти из теста</button></div>
+        <div class="btn-submit__wrapp">
+        <form name="myForm" action="">
+          <button class="btn-submit" id="submit">Завершить тест</button>
+        </form>
+      </div>
+      </div>
+      </div>
+      <div id="modal" data-modal class="fade-block" hidden>
+        <div class="modal-window">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-title">Желаете выйти без сохранения результатов?</p>
+              <button data-modal-close type="button" class="btn-exit btn" id="exit">
+                Да
+              </button>
+              <button data-modal-close class="btn btn-modal" type="button">Нет</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="tasks-ninth__class"></div>
+      <div id="tasks-eighth__class"></div>
+    </div>
+    </section>
+    <section class="section-teacher__page">
+      <div class="containet">
+        <div class="table-wrapper">
+      <div id="teacher-page">
+        <table class="table">
+          <thead>
+            <th>№</th>
+            <th>Ф.И.О.</th>
+            <th>Количиство правильных ответов ученика</th>
+            <th>Класс</th>
+            <th>Удалить</th>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-wrapper">
+          <div class="footer-copyright">
+            2021 &copy; Математика.<br />
+            <span>Тестовый тренажер</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/questions.js"></script>
+    <script src="./js/scripts.js"></script>
+  </body>
+</html>

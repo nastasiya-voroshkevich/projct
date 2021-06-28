@@ -56,22 +56,25 @@ body {
     height: 75px;
   }
 }
-.nav-link  {
+.nav-link {
   margin-left: 20px;
   display: inline-block;
   color: rgb(48, 47, 47);
   font-weight: 700;
   text-align: justify;
   user-select: none;
-  padding: .5em 2em;
+  padding: 0.5em 2em;
   outline: none;
   border: 2px solid;
   border-radius: 1px;
   transition: 0.2s;
-} 
-.nav-link:hover { background: rgba(156, 152, 144, 0.856); }
-.nav-link:active { background: white; }
-
+}
+.nav-link:hover {
+  background: rgba(156, 152, 144, 0.856);
+}
+.nav-link:active {
+  background: white;
+}
 
 @media (min-width: 768px) {
   .header__content {
@@ -133,7 +136,10 @@ body {
 .btn-next,
 .btn-restart,
 .btn-exit__modal,
-.btn-submit, #test-ninth__class, #test-eighth__class ,#test-eleventh__class{
+.btn-submit,
+#test-ninth__class,
+#test-eighth__class,
+#test-eleventh__class {
   display: inline-block;
   padding-right: 16px;
   padding-left: 16px;
@@ -156,11 +162,16 @@ body {
   -moz-transition: background-color 0.4s ease;
   transition: background-color 0.4s ease;
 }
-#test-ninth__class, #test-eighth__class ,#test-eleventh__class{
+#test-ninth__class,
+#test-eighth__class,
+#test-eleventh__class {
   padding-right: 12px;
   padding-left: 12px;
   height: 18px;
   font-size: 10px;
+}
+#test-eleventh__class {
+  height: 25px;
 }
 .btn:focus {
   outline: none;
@@ -207,6 +218,9 @@ body {
     font-weight: 400;
     margin-right: 10px;
   }
+  #test-eleventh__class br {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .wrapper {
@@ -245,8 +259,10 @@ body {
   .btn-next,
   .btn-restart,
   .btn-exit__modal,
-  .btn-submit , #test-ninth__class,#test-eighth__class, #test-eleventh__class{
-   
+  .btn-submit,
+  #test-ninth__class,
+  #test-eighth__class,
+  #test-eleventh__class {
     padding-right: 18px;
     padding-left: 18px;
     height: 25px;
@@ -274,7 +290,10 @@ body {
   .btn-next,
   .btn-restart,
   .btn-exit__modal,
-  .btn-submit, #test-ninth__class,#test-eighth__class ,#test-eleventh__class{
+  .btn-submit,
+  #test-ninth__class,
+  #test-eighth__class,
+  #test-eleventh__class {
     padding-right: 28px;
     padding-left: 28px;
     height: 40px;
@@ -300,7 +319,8 @@ body {
 /*===section-quiz ====*/
 
 .quiz,
-.quiz-questions-item__question, .quiz-results-item__question {
+.quiz-questions-item__question,
+.quiz-results-item__question {
   margin: 30px auto;
   width: 220px;
   font-family: "Montserrat", sans-serif;
@@ -327,7 +347,8 @@ body {
 }
 @media (min-width: 540px) {
   .quiz,
-  .quiz-questions-item__question, .quiz-results-item__question  {
+  .quiz-questions-item__question,
+  .quiz-results-item__question {
     margin: 35px auto;
     width: 400px;
     font-size: 18px;
@@ -346,7 +367,8 @@ body {
 }
 @media (min-width: 768px) {
   .quiz,
-  .quiz-questions-item__question, .quiz-results-item__question  {
+  .quiz-questions-item__question,
+  .quiz-results-item__question {
     margin: 40px auto;
     width: 600px;
     font-size: 20px;
@@ -365,7 +387,8 @@ body {
 }
 @media (min-width: 1200px) {
   .quiz,
-  .quiz-questions-item__question,.quiz-results-item__question  {
+  .quiz-questions-item__question,
+  .quiz-results-item__question {
     margin: 60px auto;
     width: 740px;
     font-weight: 400;
@@ -454,11 +477,13 @@ ul {
 
 @media (min-width: 768px) {
   .modal-window {
-  top: 35%;}
+    top: 35%;
+  }
 }
 @media (min-width: 768px) {
   .modal-window {
-  top: 40%;}
+    top: 40%;
+  }
 }
 
 /*==== section-teacher__page =====*/
@@ -510,7 +535,6 @@ table tbody tr:hover {
   }
   .table-wrapper {
     width: 400px;
-    
   }
 }
 @media (min-width: 768px) {
@@ -520,7 +544,6 @@ table tbody tr:hover {
   }
   .table-wrapper {
     width: 700px;
-   
   }
 }
 @media (min-width: 850px) {
@@ -530,7 +553,6 @@ table tbody tr:hover {
   }
   .table-wrapper {
     width: 800px;
-   
   }
 }
 @media (min-width: 1200px) {
@@ -540,7 +562,6 @@ table tbody tr:hover {
   }
   .table-wrapper {
     width: 1000px;
-    
   }
 }
 
@@ -591,6 +612,6 @@ table tbody tr:hover {
 }
 /*=======================================*/
 
-.hidden { 
-  display: none!important
+.hidden {
+  display: none !important;
 }

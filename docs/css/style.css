@@ -473,8 +473,8 @@ margin-top: 100px;
 .custom-radio {
   position: relative;
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin-right: 15px;
   margin-top: -3px;
 
@@ -498,8 +498,8 @@ margin-top: 100px;
   margin: auto;
   display: block;
 
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: #2ab698;
   border-radius: 50%;
   display: none;
@@ -537,8 +537,11 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 200px;
-  background-color: rgba(66, 73, 68, 0.69);
+  background: rgba(66, 73, 68, 0.69);
+  -moz-background-size: 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%; /* Opera 9.6+ */
+  background-size: 100%; /* Современные браузеры */
 }
 
 .modal-window {
@@ -547,20 +550,21 @@ ul {
   border-radius: 5px;
   position: absolute;
   background: #fff;
-  left: 50%;
+  left: 45%;
   top: 30%;
-
   transform: translate(-50%, -50%);
 }
 
 @media (min-width: 768px) {
   .modal-window {
     top: 35%;
+    left: 50%;
   }
 }
 @media (min-width: 768px) {
   .modal-window {
     top: 40%;
+    left: 50%;
   }
 }
 

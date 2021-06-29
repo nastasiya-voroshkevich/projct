@@ -34,6 +34,7 @@ let currentQuestions;
 
 let localStorageAnswers = localStorage.getItem("answers");
 let localResults = localStorageAnswers ? JSON.parse(localStorageAnswers) : {};
+ let parsedLocalStorageAnswers;
 let localStorageContent = localStorage.getItem("content");
 
 //===========================================================
@@ -199,7 +200,13 @@ function renderIndicator(currentStep) {
 quiz.addEventListener("change", (event) => {
   if (event.target.classList.contains("answer-input")) {
     setValue(event);
+    if (localStorageAnswers) {
+      parsedLocalStorageAnswers = JSON.parse(localStorageAnswers);
+     if(parsedLocalStorageAnswers.length === 10) {
+      outputResult()
      }
+    }
+  }
 });
 
 quiz.addEventListener("input", (event) => {
@@ -465,7 +472,7 @@ function changeLocation() {
         let page;
         if (localStorageAnswers) {
           parsedLocalStorageAnswers = JSON.parse(localStorageAnswers);
-         page = Object.keys(parsedLocalStorageAnswers).length;
+          page = Object.keys(parsedLocalStorageAnswers).length;
         } else {
           page = 0;
         }
@@ -476,10 +483,7 @@ function changeLocation() {
                 currentQuestions = geometr;
               if (localStorageContent && localStorageAnswers) {
                 outputResult()
-              } else if( page === 10) {
-                outputResult()
-              }
-              else {
+              } else {
                 renderQuestions(page );
               }
             }
@@ -490,10 +494,7 @@ function changeLocation() {
               currentQuestions = algebra;
               if (localStorageContent && localStorageAnswers) {
                 outputResult()
-              } else if( page === 10) {
-                outputResult()
-              }
-              else {
+              } else {
                 renderQuestions(page);
               }
             }
@@ -507,10 +508,7 @@ function changeLocation() {
               if (localStorageContent && localStorageAnswers) {
                 outputResult()
                  
-              } else if( page === 19) {
-                outputResult()
-              }
-              else {
+              } else {
                 renderQuestions(page);
               }
             }

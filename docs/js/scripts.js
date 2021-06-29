@@ -29,11 +29,11 @@ const buttonClose = document.querySelectorAll("[data-modal-close]");
 const btnSubmit = document.querySelector(".btn-submit");
 const btn = document.querySelector('.btn')
 let currentQuestions;
+
 //========================================================
 
 let localStorageAnswers = localStorage.getItem("answers");
-localResults = localStorageAnswers ? JSON.parse(localStorageAnswers) : {};
-
+let localResults = localStorageAnswers ? JSON.parse(localStorageAnswers) : {};
 let localStorageContent = localStorage.getItem("content");
 
 //===========================================================
@@ -44,9 +44,6 @@ let arrSumm = [];
 let str = [];
 let arr = [];
 let strResults = [];
-
-//let currentClass = classNumber.value
-//classNumber.value = localStorage.getItem("currentClass");
 inputEmail.value = localStorage.getItem("currentUser");
 person.value = localStorage.getItem("currentClass");
 changeLocation();
@@ -60,8 +57,9 @@ function renderQuestions(index) {
       currentQuestions[index].answers
         .map((answer) => {
           return `<li>
-        <label>
-        <input type="radio" class="answer-input" id=${currentQuestions[index].id} name=${index} value=${answer.id}>
+        <label "label-radio">
+        <input type="radio" class="answer-input real-radio" id=${currentQuestions[index].id} name=${index} value=${answer.id}>
+        <span class="custom-radio"></span>
         ${answer.value}
         </label>
         </li>`;
@@ -182,6 +180,16 @@ function renderResults() {
   }
 }
 
+function outputResult() {
+  questions.hidden = true;
+  indicator.hidden = true;
+  results.hidden = false;
+  next.classList.add('hidden')
+  restart.classList.add('hidden')
+  correctAnswer.hidden = false;
+  btnExitModal.classList.add('hidden');
+  renderResults();
+}
 function renderIndicator(currentStep) {
   indicator.innerHTML = `${currentStep}/${currentQuestions.length}`;
 }
@@ -191,7 +199,7 @@ function renderIndicator(currentStep) {
 quiz.addEventListener("change", (event) => {
   if (event.target.classList.contains("answer-input")) {
     setValue(event);
-  }
+     }
 });
 
 quiz.addEventListener("input", (event) => {
@@ -199,18 +207,13 @@ quiz.addEventListener("input", (event) => {
     setValue(event);
   }
 });
+
+
 const clickHandler = (e) => {
   if (e.target.classList.contains("btn-next")) {
     let nextQuestionIndex = Number(questions.dataset.currentStep) + 1;
     if (currentQuestions.length === nextQuestionIndex) {
-      questions.hidden = true;
-      indicator.hidden = true;
-      results.hidden = false;
-      next.classList.add('hidden')
-      restart.classList.add('hidden')
-      correctAnswer.hidden = false;
-      btnExitModal.classList.add('hidden');
-      renderResults();
+      outputResult()
     } else {
       renderQuestions(nextQuestionIndex);
     }
@@ -225,13 +228,7 @@ const clickHandler = (e) => {
       restart.disabled = true;
     }
     if (currentQuestions.length === previousQuestionIndex) {
-      questions.hidden = true;
-      indicator.hidden = true;
-      results.hidden = false;
-      next.classList.add('hidden')
-      restart.classList.add('hidden')
-      btnExitModal.classList.add('hidden');
-      renderResults();
+      outputResult()
     } else {
       console.log("case 2");
       
@@ -241,7 +238,6 @@ const clickHandler = (e) => {
   }
 };
 quiz.addEventListener("click", clickHandler);
-
 submit.addEventListener("click", function () {
   localResults = {};
   results.innerHTML = "";
@@ -347,14 +343,12 @@ function changeLocation() {
   login.hidden = false;
   recording.hidden = true;
   teacherPage.hidden = true;
-   logout.classList.add('hidden'); 
+  logout.classList.add('hidden'); 
   tasksEleventhClass.hidden = true;
   tasksEighthClass.hidden = true;
   tasksNinthClass.hidden = true;
   btn.hidden = true;
-  testNinthClass.classList.add('hidden');
-  testEighthClass.classList.add('hidden')
-  testEleventhClass.classList.add('hidden')
+
   switch (location.hash) {
     case "#recording":
     case "#exit":
@@ -471,7 +465,7 @@ function changeLocation() {
         let page;
         if (localStorageAnswers) {
           parsedLocalStorageAnswers = JSON.parse(localStorageAnswers);
-          page = Object.keys(parsedLocalStorageAnswers).length;
+         page = Object.keys(parsedLocalStorageAnswers).length;
         } else {
           page = 0;
         }
@@ -479,18 +473,13 @@ function changeLocation() {
         switch (location.hash) {
           case "#tasksEighthClass":
             if (inputEmail.value && person.value === "8") {
-              console.log("case #task");
-              currentQuestions = geometr;
+                currentQuestions = geometr;
               if (localStorageContent && localStorageAnswers) {
-                questions.hidden = true;
-                indicator.hidden = true;
-                results.hidden = false;
-                next.classList.add('hidden')
-                restart.classList.add('hidden')
-                correctAnswer.hidden = false;
-                btnExitModal.classList.add('hidden')
-                renderResults();
-              } else {
+                outputResult()
+              } else if( page === 10) {
+                outputResult()
+              }
+              else {
                 renderQuestions(page );
               }
             }
@@ -500,15 +489,11 @@ function changeLocation() {
               console.log("case #task1");
               currentQuestions = algebra;
               if (localStorageContent && localStorageAnswers) {
-                questions.hidden = true;
-                indicator.hidden = true;
-                results.hidden = false;
-                next.classList.add('hidden')
-                restart.classList.add('hidden')
-                correctAnswer.hidden = false;
-                btnExitModal.classList.add('hidden')
-                renderResults();
-              } else {
+                outputResult()
+              } else if( page === 10) {
+                outputResult()
+              }
+              else {
                 renderQuestions(page);
               }
             }
@@ -520,15 +505,12 @@ function changeLocation() {
               location.hash === "#tasksEleventhClass";
               currentQuestions = DATA;
               if (localStorageContent && localStorageAnswers) {
-                questions.hidden = true;
-                indicator.hidden = true;
-                results.hidden = false;
-                next.classList.add('hidden')
-                restart.classList.add('hidden')
-                correctAnswer.hidden = false;
-                btnExitModal.classList.add('hidden')
-                renderResults();
-              } else {
+                outputResult()
+                 
+              } else if( page === 19) {
+                outputResult()
+              }
+              else {
                 renderQuestions(page);
               }
             }

@@ -1,4 +1,5 @@
 const quiz = document.getElementById("quiz");
+const body = document.querySelector('body')
 const questions = document.getElementById("questions");
 const indicator = document.getElementById("indicator");
 const results = document.getElementById("results");
@@ -254,9 +255,11 @@ submit.addEventListener("click", function () {
 
 btnExitModal.addEventListener("click", function () {
   modal.hidden = false;
+  body.classList.add('scroll-hidden')
   buttonClose.forEach((item) =>
     item.addEventListener("click", function () {
       modal.hidden = true;
+      body.classList.remove('scroll-hidden')
     })
   );
   buttonClose[0].addEventListener("click", function () {
